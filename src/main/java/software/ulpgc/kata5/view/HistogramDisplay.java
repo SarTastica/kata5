@@ -1,4 +1,4 @@
-package software.ulpgc.kata4.view;
+package software.ulpgc.kata5.view;
 
 public interface HistogramDisplay {
     void display();

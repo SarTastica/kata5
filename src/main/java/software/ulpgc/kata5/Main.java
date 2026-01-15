@@ -1,13 +1,13 @@
-package software.ulpgc.kata4;
+package software.ulpgc.kata5;
 
-import software.ulpgc.kata4.control.HistogramControl;
-import software.ulpgc.kata4.io.FileTitleLoader;
-import software.ulpgc.kata4.io.TitleLoader;
-import software.ulpgc.kata4.io.TsvTitleDeserializer;
-import software.ulpgc.kata4.model.Title;
-import software.ulpgc.kata4.view.HistogramDisplay;
-import software.ulpgc.kata4.view.JFreeChartHistogramDisplay;
-import software.ulpgc.kata4.viewmodel.Histogram;
+import software.ulpgc.kata5.control.HistogramControl;
+import software.ulpgc.kata5.io.FileTitleLoader;
+import software.ulpgc.kata5.io.TitleLoader;
+import software.ulpgc.kata5.io.TsvTitleDeserializer;
+import software.ulpgc.kata5.model.Title;
+import software.ulpgc.kata5.view.HistogramDisplay;
+import software.ulpgc.kata5.view.JFreeChartHistogramDisplay;
+import software.ulpgc.kata5.viewmodel.Histogram;
 
 import java.io.File;
 import java.util.List;

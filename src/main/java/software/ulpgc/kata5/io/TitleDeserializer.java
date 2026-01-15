@@ -1,6 +1,6 @@
-package software.ulpgc.kata4.io;
+package software.ulpgc.kata5.io;
 
-import software.ulpgc.kata4.model.Title;
+import software.ulpgc.kata5.model.Title;
 
 public interface TitleDeserializer {
     Title deserialize(String line);

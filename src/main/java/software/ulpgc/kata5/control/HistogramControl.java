@@ -1,7 +1,7 @@
-package software.ulpgc.kata4.control;
+package software.ulpgc.kata5.control;
 
-import software.ulpgc.kata4.model.Title;
-import software.ulpgc.kata4.viewmodel.Histogram;
+import software.ulpgc.kata5.model.Title;
+import software.ulpgc.kata5.viewmodel.Histogram;
 
 import java.util.List;
 import java.util.function.Function;

@@ -1,14 +1,13 @@
-package software.ulpgc.kata4.view;
+package software.ulpgc.kata5.view;
 
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
-import software.ulpgc.kata4.viewmodel.Histogram;
+import software.ulpgc.kata5.viewmodel.Histogram;
 
 import javax.swing.*;
-import java.awt.*;
 
 public class JFreeChartHistogramDisplay extends JFrame implements HistogramDisplay {
     private final Histogram<String> histogram;
