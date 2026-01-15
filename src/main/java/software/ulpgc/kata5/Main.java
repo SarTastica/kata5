@@ -1,29 +1,38 @@
 package software.ulpgc.kata5;
 
 import software.ulpgc.kata5.control.HistogramControl;
-import software.ulpgc.kata5.io.FileTitleLoader;
-import software.ulpgc.kata5.io.TitleLoader;
-import software.ulpgc.kata5.io.TsvTitleDeserializer;
+import software.ulpgc.kata5.io.*;
 import software.ulpgc.kata5.model.Title;
 import software.ulpgc.kata5.view.HistogramDisplay;
 import software.ulpgc.kata5.view.JFreeChartHistogramDisplay;
 import software.ulpgc.kata5.viewmodel.Histogram;
 
 import java.io.File;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.List;
 
 public class Main {
-    public static void main(String[] args) {
-        File file = new File("title.basics.tsv");
+    public static void main(String[] args) throws SQLException {
+        Connection connection = DriverManager.getConnection("jdbc:sqlite:titleS:db");
+        File file = new File("titles.tsv");
 
-        TitleLoader loader = new FileTitleLoader(file, new TsvTitleDeserializer());
-        List<Title> titles = loader.load();
+        List<Title> titlesFromFile = new FileTitleLoader(file, new TsvTitleDeserializer()).load();
+
+        TitleWriter writer = new SQLiteTitleWriter(connection);
+        writer.write(titlesFromFile);
+        System.out.println("Datos guardados en bd");
+
+
+        TitleReader reader = new SQLiteTitleReader(connection);
+        List<Title> titlesFromDb = reader.read();
+        System.out.println("Datos leidos en bd" + titlesFromDb.size());
 
         HistogramControl control = new HistogramControl();
 
-        Histogram<String> histogram = control.build(titles, Title::getTitleType);
+        Histogram<String> histogram = control.build(titlesFromDb, Title::getTitleType);
 
-        HistogramDisplay display = new JFreeChartHistogramDisplay(histogram);
-        display.display();
+        new JFreeChartHistogramDisplay(histogram).display();
     }
 }
