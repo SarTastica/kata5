@@ -42,7 +42,7 @@ public class JFreeChartHistogramDisplay extends JFrame implements HistogramDispl
     }
 
     @Override
-    public void show(){
+    public void display(){
         this.setVisible(true);
     }
 }

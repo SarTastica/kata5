@@ -24,6 +24,6 @@ public class Main {
         Histogram<String> histogram = control.build(titles, Title::getTitleType);
 
         HistogramDisplay display = new JFreeChartHistogramDisplay(histogram);
-        display.show();
+        display.display();
     }
 }
